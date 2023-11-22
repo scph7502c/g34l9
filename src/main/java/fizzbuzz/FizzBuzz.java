@@ -2,10 +2,10 @@ package fizzbuzz;
 
 public class FizzBuzz {
     public static void main(String[] args) {
-        printFizzBuzz(1, 100, 3, "Fizz", 5, "Buzz");
+        playFizzBuzz(1, 100, 3, "Fizz", 5, "Buzz");
     }
 
-    public static void printFizzBuzz(int start, int end, int fizzNumber, String fizzWord, int buzzNumber, String buzzWord) {
+    public static void playFizzBuzz(int start, int end, int fizzNumber, String fizzWord, int buzzNumber, String buzzWord) {
         for (int i = start; i <= end; i++) {
             String output = "";
             if (i % fizzNumber == 0) output += fizzWord;

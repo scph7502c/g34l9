@@ -4,48 +4,45 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import textAnalyze.*;
 
+
 public class TextAnalyzerTest {
 
     @Test
-    void testNoCharacters() {
+    public void testWhenEmptyText() {
         // given
-        TextAnalyzer textAnalyzer = new TextAnalyzer();
-        String emptyText = "";
+        String text = "";
 
         // when
-        TextAnalysisResult result = textAnalyzer.analyzeText(emptyText);
+        TextAnalyzer analyzer = new TextAnalyzer(text);
 
         // then
-        assertFalse(result.isContainsCharacters());
+        assertFalse(analyzer.isPalindrome(text));
+        assertEquals(0, analyzer.getLength());
     }
 
     @Test
-    void testNoPalindrome() {
+    public void testIfPalindrome() {
         // given
-        TextAnalyzer textAnalyzer = new TextAnalyzer();
-        String nonPalindromeText = "Nie jestem palindromem";
+        String text = "Może jutro ta dama sama da tortu jeżom";
 
         // when
-        TextAnalysisResult result = textAnalyzer.analyzeText(nonPalindromeText);
+        TextAnalyzer analyzer = new TextAnalyzer(text);
 
         // then
-        assertTrue(result.isContainsCharacters());
-        assertFalse(result.isPalindrome());
-        assertEquals(nonPalindromeText.length(), result.getTextLength());
+        assertTrue(analyzer.isPalindrome(text));
+        assertEquals(38, analyzer.getLength());
     }
 
     @Test
-    void testPalindromeAndLength() {
+    public void testIfNonPalindrome() {
         // given
-        TextAnalyzer textAnalyzer = new TextAnalyzer();
-        String palindromeText = "Może jutro ta dama sama da tortu jeżom";
+        String text = "Listopad";
 
         // when
-        TextAnalysisResult result = textAnalyzer.analyzeText(palindromeText);
+        TextAnalyzer analyzer = new TextAnalyzer(text);
 
         // then
-        assertTrue(result.isContainsCharacters());
-        assertTrue(result.isPalindrome());
-        assertEquals(38, result.getTextLength());
+        assertFalse(analyzer.isPalindrome(text));
+        assertEquals(8, analyzer.getLength());
     }
 }

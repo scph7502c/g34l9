@@ -1,19 +1,15 @@
 package lesson5.task5;
 
-public class Bicycle implements Vehicle {
+public class Bicycle implements NonMotorVehicle {
 
-    @Override
-    public void startEngine() {
-        System.out.println("Rower nie ma silnika.");
+    private boolean hasGears;
+
+    public Bicycle(boolean hasGears) {
+        this.hasGears = hasGears;
     }
 
     @Override
-    public void stopEngine() {
-        System.out.println("Rower nie ma silnika.");
-    }
-
-    @Override
-    public boolean isEngineStarted() {
-        return false;
+    public boolean hasGears() {
+        return hasGears;
     }
 }

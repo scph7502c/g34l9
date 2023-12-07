@@ -1,7 +1,10 @@
 package lesson5.task5;
 
-public class Car implements Vehicle {
+public class Car implements MotorVehicle {
     private boolean engineStarted;
+
+    public Car() {
+    }
 
     @Override
     public void startEngine() {

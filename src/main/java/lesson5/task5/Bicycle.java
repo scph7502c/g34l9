@@ -1,15 +1,14 @@
 package lesson5.task5;
 
-public class Bicycle implements NonMotorVehicle {
-
+public class Bicycle implements Vehicle {
     private boolean hasGears;
 
     public Bicycle(boolean hasGears) {
         this.hasGears = hasGears;
     }
 
-    @Override
     public boolean hasGears() {
         return hasGears;
     }
+
 }
